@@ -9,6 +9,7 @@ var RestaurantSchema = Schema({
 	horario:String,
 	tipo_cocina:String,
 	direccion:String,
+	capacidad:String,
 	imagen:String,
 	user: {type: Schema.ObjectId, ref:'User'}
 

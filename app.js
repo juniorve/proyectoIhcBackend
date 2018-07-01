@@ -7,8 +7,9 @@ var app = express();
 
 //cargar rutas
 var user_routes= require('./routes/user_routes');
-var evento_routes= require('./routes/evento_routes');
+var restaurant_routes= require('./routes/restaurant_routes');
 var comentario_routes= require('./routes/comentario_routes');
+var upload_routes= require('./routes/upload_routes');
 
 //configuracion body-parser
 app.use(bodyParser.urlencoded({extended:false}));
@@ -24,9 +25,11 @@ app.use((req,res,next) => {
 	next();
 });
 
+
 // rutas bases;
+app.use('/api',upload_routes);
 app.use('/api',user_routes);
-app.use('/api',evento_routes);
+app.use('/api',restaurant_routes);
 app.use('/api',comentario_routes);
 
 module.exports = app; // para usar express en otros ficheros que incluyan app

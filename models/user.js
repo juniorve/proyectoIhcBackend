@@ -6,11 +6,13 @@ var Schema = mongoose.Schema; // permitira crear objetos de tipo esquema
 var UsuarioSchema = Schema({
 	name:String,
 	surname:String,
-	pais:String,
-	role:String,
+	ciudad:String,
+	direccion:String,
+	celular:String,
+	descripcion:String,
 	email:String,
 	password:String,
-	estado:String
+	role:String
 });
 
 module.exports = mongoose.model('User',UsuarioSchema);

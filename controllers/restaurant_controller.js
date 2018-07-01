@@ -16,10 +16,11 @@ function saveRestaurant(req,res){
 	restaurant.horario= params.horario;
 	restaurant.tipo_cocina= params.tipo_cocina;
 	restaurant.direccion= params.direccion;
+	restaurant.capacidad= params.capacidad;
 	restaurant.imagen= params.imagen;
 	restaurant.user= params.user;
 
-	if(restaurant.nombre!=null && restaurant.descripcion!=null && restaurant.horario!=null && restaurant.tipo_cocina!=null
+	if(restaurant.nombre!=null && restaurant.capacidad!=null && restaurant.descripcion!=null && restaurant.horario!=null && restaurant.tipo_cocina!=null
 		&& restaurant.direccion!=null && restaurant.imagen!=null && restaurant.user!=null){
 
 		restaurant.save((err, restaurantStored) =>{
@@ -121,7 +122,7 @@ function uploadImage(req,res){
 	if(req.files){
 	
 		console.log(req.files);
-		var file_path = req.files.iamgen.path;
+		var file_path = req.files.imagen.path;
 		var file_split = file_path.split(path.sep);
 		var file_name = file_split[2];
 		console.log(file_name);
@@ -131,7 +132,7 @@ function uploadImage(req,res){
 
 	    if(file_ext=='png' || file_ext=='jpg' || file_ext=='gif'){
 
-	    	Restaurant.findByIdAndUpdate(restaurantId, {iamgen:file_name}, (err, restaurantUpdated) =>{
+	    	Restaurant.findByIdAndUpdate(restaurantId, {imagen:file_name}, (err, restaurantUpdated) =>{
 	    		if(!restaurantUpdated){
 	    			res.status(404).send({message:"No se pudo actualizar restaurant"});
 	    		}else{
