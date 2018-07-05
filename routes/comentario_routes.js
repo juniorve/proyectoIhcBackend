@@ -13,7 +13,7 @@ var api= express.Router();
 api.post('/comentario',md_auth.ensureAuth,comentarioController.saveComentario);
 api.get('/getcomentarios/:usuario?',md_auth.ensureAuth,comentarioController.getComentarios);
 api.get('/comentario/:id?',md_auth.ensureAuth,comentarioController.getComentario);
-api.get('/comentarios/:propuesta',md_auth.ensureAuth,comentarioController.getComentariosxPropuesta);
+api.get('/comentarios/:restaurant',md_auth.ensureAuth,comentarioController.getComentariosxRestaurant);
 api.put('/comentario/:id?',md_auth.ensureAuth,comentarioController.updateComentario);
 api.delete('/comentario/:id?',md_auth.ensureAuth,comentarioController.deleteComentario);
 module.exports = api;
