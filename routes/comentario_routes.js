@@ -14,6 +14,7 @@ api.post('/comentario',md_auth.ensureAuth,comentarioController.saveComentario);
 api.get('/getcomentarios/:usuario?',md_auth.ensureAuth,comentarioController.getComentarios);
 api.get('/comentario/:id?',md_auth.ensureAuth,comentarioController.getComentario);
 api.get('/comentarios/:restaurant',md_auth.ensureAuth,comentarioController.getComentariosxRestaurant);
+api.get('/comentariosUser/:usuario',md_auth.ensureAuth,comentarioController.getComentariosxUsuario);
 api.put('/comentario/:id?',md_auth.ensureAuth,comentarioController.updateComentario);
 api.delete('/comentario/:id?',md_auth.ensureAuth,comentarioController.deleteComentario);
 module.exports = api;

@@ -81,6 +81,7 @@ function getComentarios(req,res){
 			}			
 		);
 }
+
 function getComentariosxRestaurant(req,res){
 	
 	var restaurantId= req.params.restaurant;
@@ -93,6 +94,32 @@ function getComentariosxRestaurant(req,res){
 	} 
 
 	find.populate({path:'usuario'}).exec((err, comentarios) => {
+			if(err){
+					res.status(500).send({ message:'Error en la peticion'});	
+				}else{
+					if(!comentarios){
+							res.status(404).send({ message:'No hay comentarios en la base de datos'});	
+					}else{
+						res.status(200).send({comentarios});	
+					}
+				}
+			}			
+		);
+}
+
+
+function getComentariosxUsuario(req,res){
+	
+	var usuarioId= req.params.usuario;
+	 
+	
+	if(usuarioId){
+			var find = Comentario.find({usuario:usuarioId}).sort('_id');
+		//	var find = Comentario.find({}).sort('_id');
+		
+	} 
+
+	find.populate({path:'restaurant'}).exec((err, comentarios) => {
 			if(err){
 					res.status(500).send({ message:'Error en la peticion'});	
 				}else{
@@ -147,5 +174,6 @@ module.exports = {
 	updateComentario,
 	deleteComentario,
 	getComentariosxRestaurant,
+	getComentariosxUsuario,
 	getComentario
 };

@@ -12,6 +12,8 @@ var UsuarioSchema = Schema({
 	descripcion:String,
 	email:String,
 	password:String,
+	facebook:String,
+	twiter:String,
 	role:String
 });
 

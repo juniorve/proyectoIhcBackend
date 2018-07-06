@@ -26,13 +26,15 @@ function saveUser(req,res){
 	user.role= params.role;
 	user.email= params.email;
 	user.password= params.password
+	user.facebook= params.facebook
+	user.twiter= params.twiter
 
 
 	if(user.password){
 		//encriptamos la contraseña
 		bcrypt.hash(user.password,null,null, function(err,hash){
 			user.password= hash;
-			if(user.direccion!=null && user.celular!=null &&user.descripcion!=null && user.name!=null && user.surname!=null && user.email!=null && user.ciudad!=null  && user.password!=null){
+			if(user.facebook!=null && user.twiter!=null && user.direccion!=null && user.celular!=null &&user.descripcion!=null && user.name!=null && user.surname!=null && user.email!=null && user.ciudad!=null  && user.password!=null){
 				//guarda el usuario
 				user.save((err,userStored)=>{
 					 if(err){
