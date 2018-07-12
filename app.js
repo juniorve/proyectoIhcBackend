@@ -10,6 +10,8 @@ var user_routes= require('./routes/user_routes');
 var restaurant_routes= require('./routes/restaurant_routes');
 var comentario_routes= require('./routes/comentario_routes');
 var upload_routes= require('./routes/upload_routes');
+var imagenes_routes= require('./routes/imagen_routes');
+var platillo_routes= require('./routes/platillo_routes');
 
 //configuracion body-parser
 app.use(bodyParser.urlencoded({extended:false}));
@@ -30,6 +32,8 @@ app.use((req,res,next) => {
 app.use('/api',upload_routes);
 app.use('/api',user_routes);
 app.use('/api',restaurant_routes);
+app.use('/api',platillo_routes);
 app.use('/api',comentario_routes);
+app.use('/api',imagenes_routes);
 
 module.exports = app; // para usar express en otros ficheros que incluyan app

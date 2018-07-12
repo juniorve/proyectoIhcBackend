@@ -14,7 +14,8 @@ var UsuarioSchema = Schema({
 	password:String,
 	facebook:String,
 	twiter:String,
-	role:String
+	role:String,
+	imagen:String
 });
 
 module.exports = mongoose.model('User',UsuarioSchema);
